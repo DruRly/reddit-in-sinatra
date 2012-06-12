@@ -1,0 +1,48 @@
+body {
+  background-color: #2E8183;
+}
+
+#links-list {
+  margin-top: 25px;
+}
+
+.title {
+  font-size: 28px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.options {
+  font-size: 18px;
+  text-align: center; 
+  margin-top: 12px;
+}
+
+.points {
+  display: inline;
+  float: left; 
+  margin-left: 20px;
+	position: relative;
+	top: 5px;
+}
+
+.link-title {
+  display: inline;
+  float: left; 
+  margin-left: 20px;
+	position: relative;
+	bottom: 5px;
+}
+
+.container {
+    background-color: white;
+    width: 500px;
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    margin-top: 10px;
+}
+
+
+

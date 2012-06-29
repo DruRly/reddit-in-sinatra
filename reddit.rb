@@ -3,10 +3,11 @@ require 'data_mapper'
 require 'haml'
 require 'sinatra/reloader'
 
-DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/example.db")
+DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/example.db")
 
 class Link
   include DataMapper::Resource
+
   property :id, Serial
   property :title, String 
   property :url, Text 
@@ -25,31 +26,36 @@ class Link
     self.all.each { |item| item.calculate_score }.sort { |a,b| a.score <=> b.score }.reverse 
   end
 end
+
 DataMapper.finalize.auto_upgrade!
 
 get '/' do 
-	@links = Link.all :order => :id.desc
+  @links = Link.all :order => :id.desc
+
   haml :index
 end
 
 get '/hot' do
 	@links = Link.all_sorted_desc
+
 	haml :index	
 end
 
 post '/' do
-  l = Link.new
-  l.title = params[:title]
-  l.url = params[:url]
-  l.created_at = Time.now
-  l.save
+  link = Link.new
+  link.title = params[:title]
+  link.url = params[:url]
+  link.created_at = Time.now
+  link.save
+
   redirect back
 end
 
-put '/:id/vote/:type' do 
-  l = Link.get params[:id]
-  l.points += params[:type].to_i
-  l.save
+put '/:id/vote/:type' do
+  link = Link.get params[:id]
+  link.points += params[:type].to_i
+  link.save
+
   redirect back
 end 
 

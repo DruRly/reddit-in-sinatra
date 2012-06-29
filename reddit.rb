@@ -25,6 +25,24 @@ class Link
   def self.all_sorted_desc
     self.all.sort { |a,b| a.score <=> b.score }.reverse 
   end
+
+  def upvote(mod = 1)
+    self.points += mod
+  end
+
+  def downvote(mod = 1)
+    self.points -= mod
+  end
+
+  def upvote!(*a, &b)
+    self.upvote(*a, &b)
+    self.save
+  end
+
+  def downvote!(*a, &b)
+    self.downvote(*a, &b)
+    self.save
+  end
 end
 
 DataMapper.finalize.auto_upgrade!
@@ -51,10 +69,17 @@ post '/' do
   redirect back
 end
 
-put '/:id/vote/:type' do
-  link = Link.get params[:id]
-  link.points += params[:type].to_i
-  link.save
+put '/:id/:type' do
+  link = Link.get(params[:id]) or halt 404
+
+  case params[:type]
+  when 'upvote'
+    link.upvote!
+  when 'downvote'
+    link.downvote!
+  else
+    halt 400
+  end
 
   redirect back
 end 
@@ -82,13 +107,13 @@ __END__
 		.row
 			.span3
 				%span.span
-					%form{:action => "#{l.id}/vote/1", :method => "post"}
+					%form{:action => "#{l.id}/upvote", :method => "post"}
 						%input{:type => "hidden", :name => "_method", :value => "put"}
 						%input{:type => "submit", :value => "⇡"}
 				%span.points
 					#{l.points}
 				%span.span
-					%form{:action => "#{l.id}/vote/-1", :method => "post"}
+					%form{:action => "#{l.id}/downvote", :method => "post"}
 						%input{:type => "hidden", :name => "_method", :value=> "put"}
 						%input{:type => "submit", :value => "⇣"}				
 			.span6

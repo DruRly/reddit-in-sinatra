@@ -33,6 +33,7 @@ get '/' do
 end
 
 get '/hot' do
+<<<<<<< HEAD
 	@links = Link.all_sorted_desc
 	haml :index	
 end
@@ -43,6 +44,16 @@ post '/' do
   l.url = params[:url]
   l.created_at = Time.now
   l.save
+=======
+  @links = Link.all_sorted_desc
+
+  haml :index  
+end
+
+post '/' do
+  Link.create(:title => params[:title], :url => params[:url], :created_at => Time.now)
+
+>>>>>>> 6c2e187... simplify link creation
   redirect back
 end
 
@@ -57,20 +68,21 @@ __END__
 
 @@ layout
 %html
-	%head
-		%link(rel="stylesheet" href="/css/bootstrap.css")
-		%link(rel="stylesheet" href="/css/style.css")
-	%body
-		.container
-			#main
-				.title Learn Sinatra
-				.options	
-					%a{:href => ('/')} New 
-					| 
-					%a{:href => ('/hot')} Hot
-				= yield
+  %head
+    %link(rel="stylesheet" href="/css/bootstrap.css")
+    %link(rel="stylesheet" href="/css/style.css")
+  %body
+    .container
+      #main
+        .title Learn Sinatra
+        .options  
+          %a{:href => ('/')} New 
+          | 
+          %a{:href => ('/hot')} Hot
+        = yield
 
 @@ index
+<<<<<<< HEAD
 #links-list	
 	-@links.each do |l|	
 		.row
@@ -89,8 +101,28 @@ __END__
 				%span.link-title
 					%h3
 						%a{:href => (l.url)} #{l.title}
+=======
+#links-list  
+  -@links.each do |l|  
+    .row
+      .span3
+        %span.span
+          %form{:action => "#{l.id}/upvote", :method => "post"}
+            %input{:type => "hidden", :name => "_method", :value => "put"}
+            %input{:type => "submit", :value => "⇡"}
+        %span.points
+          #{l.points}
+        %span.span
+          %form{:action => "#{l.id}/downvote", :method => "post"}
+            %input{:type => "hidden", :name => "_method", :value=> "put"}
+            %input{:type => "submit", :value => "⇣"}        
+      .span6
+        %span.link-title
+          %h3
+            %a{:href => (l.url)} #{l.title}
+>>>>>>> 6c2e187... simplify link creation
 #add-link
-	%form{:action => "/", :method => "post"}
-		%input{:type => "text", :name => "title", :placeholder => "Title"}
-		%input{:type => "text", :name => "url", :placeholder => "Url"}
-		%input{:type => "submit", :value => "Submit"}	
+  %form{:action => "/", :method => "post"}
+    %input{:type => "text", :name => "title", :placeholder => "Title"}
+    %input{:type => "text", :name => "url", :placeholder => "Url"}
+    %input{:type => "submit", :value => "Submit"}  

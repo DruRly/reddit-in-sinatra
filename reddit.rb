@@ -15,15 +15,11 @@ class Link
   property :points, Integer, :default => 0
   property :created_at, Time
 
-  def self.score
+  def score
     @_score ||= begin
       time_elapsed = (Time.now - self.created_at) / 3600
       ((self.points - 1) / (time_elapsed + 2) ** 1.8).real
     end
-  end
-
-  def self.all_sorted_desc
-    self.all.sort { |a,b| a.score <=> b.score }.reverse 
   end
 
   def upvote(mod = 1)
@@ -42,6 +38,10 @@ class Link
   def downvote!(*a, &b)
     self.downvote(*a, &b)
     self.save
+  end
+
+  def self.all_sorted_desc
+    self.all.sort { |a,b| a.score <=> b.score }.reverse 
   end
 end
 

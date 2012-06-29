@@ -1,4 +1,7 @@
 source :rubygems
+
+gem "eventmachine", :github => 'eventmachine/eventmachine'
+
 gem "sinatra"
 gem "sqlite3"
 gem "dm-sqlite-adapter"

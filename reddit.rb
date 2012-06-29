@@ -33,39 +33,12 @@ get '/' do
 end
 
 get '/hot' do
-<<<<<<< HEAD
-<<<<<<< HEAD
 	@links = Link.all_sorted_desc
 	haml :index	
 end
 
 post '/' do
-  l = Link.new
-  l.title = params[:title]
-  l.url = params[:url]
-  l.created_at = Time.now
-  l.save
-=======
-  @links = Link.all_sorted_desc
-
-  haml :index  
-=======
-  @links = Link.all_sorted_desc
-
-  haml :index  
-end
-
-post '/' do
   Link.create(:title => params[:title], :url => params[:url], :created_at => Time.now)
-
-  redirect back
->>>>>>> 6c2e187... simplify link creation
-end
-
-post '/' do
-  Link.create(:title => params[:title], :url => params[:url], :created_at => Time.now)
-
->>>>>>> 6c2e187... simplify link creation
   redirect back
 end
 
@@ -94,8 +67,6 @@ __END__
         = yield
 
 @@ index
-<<<<<<< HEAD
-<<<<<<< HEAD
 #links-list	
 	-@links.each do |l|	
 		.row
@@ -114,9 +85,7 @@ __END__
 				%span.link-title
 					%h3
 						%a{:href => (l.url)} #{l.title}
-=======
-=======
->>>>>>> 6c2e187... simplify link creation
+
 #links-list  
   -@links.each do |l|  
     .row
@@ -135,10 +104,6 @@ __END__
         %span.link-title
           %h3
             %a{:href => (l.url)} #{l.title}
-<<<<<<< HEAD
->>>>>>> 6c2e187... simplify link creation
-=======
->>>>>>> 6c2e187... simplify link creation
 #add-link
   %form{:action => "/", :method => "post"}
     %input{:type => "text", :name => "title", :placeholder => "Title"}

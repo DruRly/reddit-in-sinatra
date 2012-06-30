@@ -1,7 +1,4 @@
-require 'sinatra'
-require 'data_mapper'
-require 'haml'
-require 'sinatra/reloader'
+%w{sinatra data_mapper haml sinatra/reloader}.each { |lib| require lib}
 
 DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/example.db")
 

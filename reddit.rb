@@ -33,12 +33,22 @@ get '/' do
 end
 
 get '/hot' do
+<<<<<<< HEAD
 	@links = Link.all_sorted_desc
 	haml :index	
+=======
+  @links = Link.all_sorted_desc
+
+  haml :index  
+>>>>>>> 6c2e187... simplify link creation
 end
 
 post '/' do
   Link.create(:title => params[:title], :url => params[:url], :created_at => Time.now)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6c2e187... simplify link creation
   redirect back
 end
 
@@ -67,6 +77,7 @@ __END__
         = yield
 
 @@ index
+<<<<<<< HEAD
 #links-list	
 	-@links.each do |l|	
 		.row
@@ -86,6 +97,8 @@ __END__
 					%h3
 						%a{:href => (l.url)} #{l.title}
 
+=======
+>>>>>>> 6c2e187... simplify link creation
 #links-list  
   -@links.each do |l|  
     .row

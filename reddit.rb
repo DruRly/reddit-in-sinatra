@@ -7,7 +7,6 @@ class Link
   property :id, Serial
   property :title, String 
   property :url, Text 
-  property :score, Integer
   property :points, Integer, :default => 0
   property :created_at, Time
 

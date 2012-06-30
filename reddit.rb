@@ -6,7 +6,7 @@ class Link
   include DataMapper::Resource
   property :id, Serial
   property :title, String, :required => true 
-  property :url, Text, :required => true 
+  property :url, Text, :required => true, :format => :url 
   property :points, Integer, :default => 0
   property :created_at, Time
 

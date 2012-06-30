@@ -40,8 +40,7 @@ end
 
 put '/:id/vote/:type' do 
   l = Link.get params[:id]
-  l.points += params[:type].to_i
-  l.save
+  l.update(:points => l.points + params[:type].to_i)
   redirect back
 end 
 
@@ -63,37 +62,18 @@ __END__
         = yield
 
 @@ index
-#links-list	
-	-@links.each do |l|	
-		.row
-			.span3
-				%span.span
-					%form{:action => "#{l.id}/vote/1", :method => "post"}
-						%input{:type => "hidden", :name => "_method", :value => "put"}
-						%input{:type => "submit", :value => "⇡"}
-				%span.points
-					#{l.points}
-				%span.span
-					%form{:action => "#{l.id}/vote/-1", :method => "post"}
-						%input{:type => "hidden", :name => "_method", :value=> "put"}
-						%input{:type => "submit", :value => "⇣"}				
-			.span6
-				%span.link-title
-					%h3
-						%a{:href => (l.url)} #{l.title}
-
-#links-list  
-  -@links.each do |l|  
+#links-list 
+  -@links.each do |l| 
     .row
       .span3
         %span.span
-          %form{:action => "#{l.id}/upvote", :method => "post"}
+          %form{:action => "#{l.id}/vote/1", :method => "post"}
             %input{:type => "hidden", :name => "_method", :value => "put"}
             %input{:type => "submit", :value => "⇡"}
         %span.points
           #{l.points}
         %span.span
-          %form{:action => "#{l.id}/downvote", :method => "post"}
+          %form{:action => "#{l.id}/vote/-1", :method => "post"}
             %input{:type => "hidden", :name => "_method", :value=> "put"}
             %input{:type => "submit", :value => "⇣"}        
       .span6
@@ -105,4 +85,4 @@ __END__
   %form{:action => "/", :method => "post"}
     %input{:type => "text", :name => "title", :placeholder => "Title"}
     %input{:type => "text", :name => "url", :placeholder => "Url"}
-    %input{:type => "submit", :value => "Submit"}  
+    %input{:type => "submit", :value => "Submit"} 

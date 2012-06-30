@@ -39,8 +39,10 @@ post '/' do
 end
 
 put '/:id/vote/:type' do 
-  l = Link.get params[:id]
-  l.update(:points => l.points + params[:type].to_i)
+  if params[:type].to_i.abs == 1
+    l = Link.get params[:id]
+    l.update(:points => l.points + params[:type].to_i)
+  end
   redirect back
 end 
 

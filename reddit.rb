@@ -1,6 +1,6 @@
 %w{sinatra data_mapper haml sinatra/reloader dm-timestamps}.each { |lib| require lib}
 
-DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/example.db")
+DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/example.db")
 
 class Link
   include DataMapper::Resource

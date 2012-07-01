@@ -1,4 +1,4 @@
-%w{sinatra data_mapper haml sinatra/reloader}.each { |lib| require lib}
+%w{sinatra data_mapper haml sinatra/reloader dm-timestamps}.each { |lib| require lib}
 
 DataMapper::setup(:default,"sqlite3://#{Dir.pwd}/example.db")
 
@@ -19,24 +19,24 @@ class Link
 
   def self.all_sorted_desc
     all.sort_by(&:score).reverse
-	end
+  end
 end
 
 DataMapper.finalize.auto_upgrade!
 
 get '/' do 
-	@links = Link.all :order => :id.desc
-	haml :index
+  @links = Link.all :order => :id.desc
+  haml :index
 end
 
 get '/hot' do
-	@links = Link.all_sorted_desc
-	haml :index	
+  @links = Link.all_sorted_desc
+  haml :index	
 end
 
 post '/' do
-	Link.create(:title => params[:title], :url => params[:url], :created_at => Time.now)
-	redirect back
+  Link.create(:title => params[:title], :url => params[:url])
+  redirect back
 end
 
 put '/:id/vote/:type' do 

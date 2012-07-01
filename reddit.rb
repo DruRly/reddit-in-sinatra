@@ -19,15 +19,11 @@ class Link
     end
   end
 
-  def calculate_score
-  	time_elapsed = (Time.now - self.created_at) / 3600
-   	self.score = ((self.points-1) / (time_elapsed+2)**1.8).real
-  end
-
   def self.all_sorted_desc
     self.all.sort { |a,b| a.score <=> b.score }.reverse 
   end
 end
+
 DataMapper.finalize.auto_upgrade!
 
 get '/' do 

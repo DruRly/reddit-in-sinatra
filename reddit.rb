@@ -13,22 +13,20 @@ class Link
   attr_accessor :score
 
   def score
-    @_score ||= begin
-      time_elapsed = (Time.now - self.created_at) / 3600
-      ((self.points - 1) / (time_elapsed + 2) ** 1.8).real
-    end
+    time_elapsed = (Time.now - self.created_at) / 3600
+    ((self.points - 1) / (time_elapsed + 2) ** 1.8).real
   end
 
   def self.all_sorted_desc
-    self.all.sort { |a,b| a.score <=> b.score }.reverse 
-  end
+    all.sort_by(&:score).reverse
+	end
 end
 
 DataMapper.finalize.auto_upgrade!
 
 get '/' do 
 	@links = Link.all :order => :id.desc
-  haml :index
+	haml :index
 end
 
 get '/hot' do
@@ -37,8 +35,8 @@ get '/hot' do
 end
 
 post '/' do
-  Link.create(:title => params[:title], :url => params[:url], :created_at => Time.now)
-  redirect back
+	Link.create(:title => params[:title], :url => params[:url], :created_at => Time.now)
+	redirect back
 end
 
 put '/:id/vote/:type' do 

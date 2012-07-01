@@ -4,7 +4,7 @@
 ###Clone Repo
 <pre>git clone git://github.com/DruRly/Build-Reddit-In-Sinatra.git</pre>
 
-##Install Gems 
+###Install Gems 
 <pre>cd reddit-in-sinatra && bundle install</pre> 
 
 ###Start Server

@@ -18,7 +18,7 @@ class Link
   end
 
   def self.all_sorted_desc
-    self.all.each { |item| item.calculate_score }.sort { |a,b| a.score <=> b.score }.reverse 
+    self.all.each { |item| item.calculate_score }.sort { |a,b| a.score <=> b.score }.reverse
   end
 end
 DataMapper.finalize.auto_upgrade!

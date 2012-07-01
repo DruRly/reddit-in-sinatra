@@ -8,4 +8,4 @@
 ###Start Server
 <pre>ruby reddit.rb</pre>
 
-## [Complete Tutorial](http://www.drurly.com/blog/2012/06/05/build-reddit-in-sinatra/)
+## [Complete Tutorial](http://www.drurly.com/blog/2012/06/30/build-reddit-in-sinatra-2/)

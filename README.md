@@ -1,10 +1,12 @@
 # Build Reddit in Sinatra
 
 ## Quick Start 
-###Install Gems
-<pre>gem install sinatra sqlite3 dm-sqlite-adapter data_mapper sinatra-reloader haml</pre>
 ###Clone Repo
 <pre>git clone git://github.com/DruRly/Build-Reddit-In-Sinatra.git</pre>
+
+##Install Gems 
+<pre>cd reddit-in-sinatra && bundle install</pre> 
+
 ###Start Server
 <pre>ruby reddit.rb</pre>
 

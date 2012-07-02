@@ -17,8 +17,8 @@ class Link
   attr_accessor :score
 
   def calculate_score
-  	time_elapsed = (Time.now - self.created_at) / 3600
-   	self.score = ((self.points-1) / (time_elapsed+2)**1.8).real
+    time_elapsed = (Time.now - self.created_at) / 3600
+    self.score = ((self.points-1) / (time_elapsed+2)**1.8).real
   end
 
   def self.all_sorted_desc
@@ -28,13 +28,13 @@ end
 DataMapper.finalize.auto_upgrade!
 
 get '/' do 
-	@links = Link.all :order => :id.desc
+  @links = Link.all :order => :id.desc
   haml :index
 end
 
 get '/hot' do
-	@links = Link.all_sorted_desc
-	haml :index	
+  @links = Link.all_sorted_desc
+  haml :index	
 end
 
 post '/' do

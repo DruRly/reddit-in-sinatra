@@ -10,6 +10,8 @@ class Link
   property :points, Integer, :default => 0
   property :created_at, Time
 
+  has n, :votes
+
   attr_accessor :score
 
   def score

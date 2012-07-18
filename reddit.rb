@@ -55,7 +55,9 @@ end
 put '/:id/vote/:type' do 
   if params[:type].to_i.abs == 1
     l = Link.get params[:id]
-    l.update(:points => l.points + params[:type].to_i)
+		if l.votes.new(:ip_address => request.remote_ip.encode('UTF-8')).save
+			l.update(:points => l.points + params[:type].to_i)
+		end
   end
   redirect back
 end 

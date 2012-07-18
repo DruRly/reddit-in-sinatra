@@ -22,6 +22,17 @@ class Link
   end
 end
 
+class Vote
+  include DataMapper::Resource
+	property :id, Serial
+	property :ip_address, String
+	property :created_at, Time
+
+	belongs_to :link
+
+	validates_uniqueness_of :ip_address, :scope => :link_id, :message => "You have already voted for this link."
+end
+
 DataMapper.finalize.auto_upgrade!
 
 get '/' do 

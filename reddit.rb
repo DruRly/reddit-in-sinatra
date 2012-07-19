@@ -102,9 +102,7 @@ __END__
         .row
           %span.span
             %h5
-              Submitted #{l.created_at.ago_in_words}
-            %h5
-              Here we go
+              Submitted #{l.created_at.ago_in_words} (#{l.url.host})
 
 #add-link
   %form{:action => "/", :method => "post"}

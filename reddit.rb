@@ -102,7 +102,7 @@ __END__
         .row
           %span.span
             %h5
-              Submitted #{Time.parse(l.created_at.asctime).ago_in_words}
+              Submitted #{l.created_at.ago_in_words}
             %h5
               Here we go
 

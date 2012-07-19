@@ -1,4 +1,4 @@
-%w{sinatra data_mapper haml sinatra/reloader dm-timestamps}.each { |lib| require lib}
+%w{sinatra data_mapper haml sinatra/reloader dm-timestamps time-ago-in-words}.each { |lib| require lib}
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/example.db")
 
@@ -102,7 +102,7 @@ __END__
         .row
           %span.span
             %h5
-              #{Time.parse(l.created_at.asctime).ago_in_words}
+              Submitted #{Time.parse(l.created_at.asctime).ago_in_words}
             %h5
               Here we go
 

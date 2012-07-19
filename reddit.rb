@@ -95,9 +95,16 @@ __END__
             %input{:type => "hidden", :name => "_method", :value=> "put"}
             %input{:type => "submit", :value => "⇣"}        
       .span6
-        %span.link-title
-          %h3
-            %a{:href => (l.url)} #{l.title}
+        .row
+          %span.link-title
+            %h3
+              %a{:href => (l.url)} #{l.title}
+        .row
+          %span.span
+            %h5
+              #{Time.parse(l.created_at.asctime).ago_in_words}
+            %h5
+              Here we go
 
 #add-link
   %form{:action => "/", :method => "post"}

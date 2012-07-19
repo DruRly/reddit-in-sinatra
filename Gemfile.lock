@@ -79,6 +79,7 @@ GEM
     sqlite3 (1.3.6)
     stringex (1.3.3)
     tilt (1.3.3)
+    time-ago-in-words (0.1.2)
     uuidtools (2.1.2)
 
 PLATFORMS
@@ -92,3 +93,4 @@ DEPENDENCIES
   sinatra
   sinatra-reloader
   sqlite3
+  time-ago-in-words

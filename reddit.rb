@@ -1,4 +1,4 @@
-%w{sinatra data_mapper haml sinatra/reloader dm-timestamps time-ago-in-words}.each { |lib| require lib}
+%w{sinatra data_mapper haml sinatra/reloader dm-timestamps time-ago-in-words uri}.each { |lib| require lib}
 
 DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/example.db")
 

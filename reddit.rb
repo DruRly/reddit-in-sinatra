@@ -100,9 +100,8 @@ __END__
             %h3
               %a{:href => (l.url)} #{l.title}
         .row
-          %span.span
-            %h5
-              Submitted #{l.created_at.ago_in_words} (#{URI.parse(l.url).host})
+          %span.link-meta-data
+            Submitted #{l.created_at.ago_in_words} (#{URI.parse(l.url).host})
 
 #add-link
   %form{:action => "/", :method => "post"}

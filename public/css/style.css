@@ -34,6 +34,14 @@ body {
 	bottom: 5px;
 }
 
+.link-meta-data {
+  display:inline;
+  float: left;
+  position: relative; 
+  margin-left: 21px; 
+  bottom: 14px;
+}
+
 .container {
     background-color: white;
     width: 500px;

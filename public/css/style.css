@@ -39,24 +39,27 @@ body {
   position: relative;
   font-size: 12px;
   font-weight: normal;
+  left: 5px; 
+  color: #888;
 }
 
-.link-meta-data {
+.link-age {
   display:inline;
   float: left;
   position: relative; 
   margin-left: 21px; 
   bottom: 14px;
+  color: #888; 
 }
 
 .container {
-    background-color: white;
-    width: 500px;
-    border-radius: 5px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 25px;
-    margin-top: 10px;
+  background-color: white;
+  width: 500px;
+  border-radius: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 25px;
+  margin-top: 10px;
 }
 
 

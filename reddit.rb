@@ -101,7 +101,7 @@ __END__
               %a{:href => (l.url)} #{l.title}
               .link-host (#{URI.parse(l.url).host})
         .row
-          %span.link-meta-data
+          %span.link-age
             Submitted #{l.created_at.ago_in_words} 
 
 #add-link

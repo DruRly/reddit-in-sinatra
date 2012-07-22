@@ -34,6 +34,12 @@ body {
 	bottom: 5px;
 }
 
+.link-host {
+  display: inline; 
+  float: left; 
+  position: relative;
+}
+
 .link-meta-data {
   display:inline;
   float: left;

@@ -38,6 +38,7 @@ body {
   display: inline; 
   position: relative;
   font-size: 12px;
+  font-weight: normal;
 }
 
 .link-meta-data {

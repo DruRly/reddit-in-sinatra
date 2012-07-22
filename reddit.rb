@@ -99,7 +99,7 @@ __END__
           %span.link-title
             %h3
               %a{:href => (l.url)} #{l.title}
-              .link-host (#{URI.parse(l.url).host}host)
+              .link-host (#{URI.parse(l.url).host})
         .row
           %span.link-meta-data
             Submitted #{l.created_at.ago_in_words} 

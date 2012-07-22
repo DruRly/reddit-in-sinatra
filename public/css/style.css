@@ -36,8 +36,8 @@ body {
 
 .link-host {
   display: inline; 
-  float: left; 
   position: relative;
+  font-size: 12px;
 }
 
 .link-meta-data {

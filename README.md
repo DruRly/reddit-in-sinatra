@@ -2,7 +2,7 @@
 
 ## Quick Start 
 ###Clone Repo
-<pre>git clone git://github.com/DruRly/Build-Reddit-In-Sinatra.git</pre>
+<pre>git clone git://github.com/DruRly/reddit-in-sinatra.git</pre>
 
 ###Install Gems 
 <pre>cd reddit-in-sinatra && bundle install</pre> 

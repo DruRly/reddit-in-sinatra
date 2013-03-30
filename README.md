@@ -2,10 +2,16 @@
 
 ## Quick Start 
 ###Clone Repo
-<pre>git clone git://github.com/DruRly/reddit-in-sinatra.git</pre>
+<pre>
+git clone git://github.com/DruRly/Build-Reddit-In-Sinatra.git
+git checkout 2.0.x
+</pre>
 
-###Install Gems 
-<pre>cd reddit-in-sinatra && bundle install</pre> 
+###Install Gems
+<pre>
+cd reddit-in-sinatra
+bundle
+</pre>
 
 ###Start Server
 <pre>ruby reddit.rb</pre>

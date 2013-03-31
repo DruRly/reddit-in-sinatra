@@ -4,12 +4,12 @@
 ###Clone Repo
 <pre>
 git clone git://github.com/DruRly/reddit-in-sinatra.git
+cd reddit-in-sinatra
 git checkout 2.0.x
 </pre>
 
 ###Install Gems
 <pre>
-cd reddit-in-sinatra
 bundle
 </pre>
 

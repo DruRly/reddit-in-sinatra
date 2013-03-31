@@ -3,7 +3,7 @@
 ## Quick Start 
 ###Clone Repo
 <pre>
-git clone git://github.com/DruRly/Build-Reddit-In-Sinatra.git
+git clone git://github.com/DruRly/reddit-in-sinatra.git
 git checkout 2.0.x
 </pre>
 
